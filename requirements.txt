@@ -274,6 +274,7 @@ python-lsp-black @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp
 python-lsp-jsonrpc @ file:///croot/python-lsp-jsonrpc_1708962872556/work
 python-lsp-ruff @ file:///opt/miniconda3/conda-bld/python-lsp-ruff_1759832185064/work
 python-lsp-server @ file:///opt/miniconda3/conda-bld/python-lsp-server_1759829153262/work
+python-multipart==0.0.32
 python-slugify @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_9393c95h1l/croot/python-slugify_1756294065290/work
 pytokens @ file:///opt/miniconda3/conda-bld/pytokens_1764151716090/work
 pytoolconfig @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/pytoolconfig_1728593267795/work
