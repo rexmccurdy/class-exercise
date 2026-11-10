@@ -55,3 +55,21 @@ def list_books(
     books = storage.list_books(min_price=min_price, limit=limit)
     logger.info(f"Listed books: count={len(books)}")
     return books
+
+@app.get("/search/books", response_model=list[BookResponse])
+def search_books(
+    min_price: float = Query(ge=0),
+    max_price: float = Query(ge=0)
+):
+    # TODO: if min_price > max_price, log WARNING and raise HTTPException
+    # with status 400 and detail (e.g., "min_price must not exceed max_price").
+    # Otherwise, call storage.search_books().
+    # Log the returned row count at INFO and return the list.
+    if min_price > max_price:
+        logger.warning(f"Invalid search range: min_price={min_price}, max_price={max_price}")
+        raise HTTPException(status_code=400, detail="min_price must not exceed max_price")
+
+    books = storage.search_books(min_price=min_price, max_price=max_price)
+    logger.info(f"Searched books: count={len(books)}")
+    return books
+
