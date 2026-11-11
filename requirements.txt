@@ -88,6 +88,7 @@ docutils @ file:///opt/miniconda3/conda-bld/docutils_1761746647505/work
 et_xmlfile @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_29xjd2rw2y/croot/et_xmlfile_1756462494507/work
 evalidate @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_26kv6ehh61/croot/evalidate_1743606021523/work
 executing @ file:///opt/miniconda3/conda-bld/executing_1757061235986/work
+fakeredis==2.40.0
 fastapi==0.156.1
 fastjsonschema @ file:///opt/miniconda3/conda-bld/python-fastjsonschema_1763718701479/work
 filelock @ file:///opt/miniconda3/conda-bld/filelock_1762419675907/work
@@ -107,11 +108,13 @@ HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///opt/miniconda3/conda-bld/holoviews_1763365056316/work
 html5lib @ file:///Users/ktietz/demo/mc3/conda-bld/html5lib_1629144453894/work
 httpcore @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_941yf7p5zt/croot/httpcore_1748526061031/work
+httpcore2==2.16.0
 httptools==0.9.0
 httpx @ file:///opt/miniconda3/conda-bld/httpx_1760447187686/work
+httpx2==2.16.0
 hvplot @ file:///opt/miniconda3/conda-bld/hvplot_1756992706337/work
 hyperlink @ file:///tmp/build/80754af9/hyperlink_1610130746837/work
-idna @ file:///opt/miniconda3/conda-bld/idna_1761912005426/work
+idna==3.20
 ImageIO @ file:///opt/miniconda3/conda-bld/imageio_1762954041284/work
 imagesize @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/imagesize_1728592187602/work
 imbalanced-learn @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_87z3fs6eek/croot/imbalanced-learn_1756460248240/work
@@ -291,6 +294,7 @@ qtconsole @ file:///opt/miniconda3/conda-bld/qtconsole_1758748642451/work
 QtPy @ file:///opt/miniconda3/conda-bld/qtpy_1757531017002/work
 queuelib @ file:///opt/miniconda3/conda-bld/queuelib_1762896904332/work
 readchar @ file:///opt/miniconda3/conda-bld/readchar_1760613300945/work
+redis==8.1.0
 referencing @ file:///opt/miniconda3/conda-bld/referencing_1762536885350/work
 regex @ file:///opt/miniconda3/conda-bld/regex_1758888024237/work
 requests @ file:///opt/miniconda3/conda-bld/requests_1762359592010/work
@@ -341,6 +345,8 @@ starlette==1.9.0
 statsmodels @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_e5zr93m722/croot/statsmodels_1753363819610/work
 streamlit @ file:///opt/miniconda3/conda-bld/streamlit-split_1761826255444/work/streamlit
 superqt @ file:///opt/miniconda3/conda-bld/superqt_1758274737768/work
+svgpathtools==1.8.0
+svgwrite==1.4.3
 sympy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_9b15dnv4zk/croot/sympy_1756713487054/work
 tables @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_ddus262lcs/croot/pytables_1748447944347/work
 tabulate @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/tabulate_1728595611287/work

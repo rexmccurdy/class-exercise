@@ -100,11 +100,6 @@ class BookStorage:
         connection = sqlite3.connect(self.db_path)
         connection.row_factory = sqlite3.Row
         try:
-            # TODO: SELECT * from books.
-            # Use WHERE to filter prices within a specific range. You can use AND to combine the two conditions.
-            # Use ORDER BY to sort by price descending, then by ID ascending.
-            # Fetch all matching rows and return a list of dictionaries.
-            # Log the returned row count at DEBUG.
             sql_statement = "SELECT * FROM books WHERE price >= ? AND price <= ? ORDER BY price DESC, id ASC"
             rows = connection.execute(sql_statement, (min_price, max_price)).fetchall()
             logger.debug(f"Total rows retrieved: {len(rows)}")
@@ -117,92 +112,90 @@ class BookStorage:
 
 
 def main():
-    path = Path("data") / "books.db"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(path)
-    connection.row_factory = sqlite3.Row
+    # path = Path("data") / "books.db"
+    # path.parent.mkdir(parents=True, exist_ok=True)
+    # connection = sqlite3.connect(path)
+    # connection.row_factory = sqlite3.Row
 
-    sql_statement = """
-    CREATE TABLE IF NOT EXISTS books (
-        id INTEGER PRIMARY KEY,
-        title TEXT NOT NULL,
-        price REAL NOT NULL
-    )
-    """
+    # sql_statement = """
+    # CREATE TABLE IF NOT EXISTS books (
+    #     id INTEGER PRIMARY KEY,
+    #     title TEXT NOT NULL,
+    #     price REAL NOT NULL
+    # )
+    # """
 
-    connection.execute(sql_statement)
-    # clear books data when running the file again
-    connection.execute("DELETE FROM books")
-    connection.commit()
-
-
-    sql_statement = "INSERT INTO books (title, price) VALUES (?, ?)"
-    cursor = connection.execute(sql_statement, ("Book A", 12.5))
-    book_id = cursor.lastrowid
-    connection.commit()
-
-    # uplodaing a single book
-    connection.execute(sql_statement, ("Book B", 1.5))
-    connection.execute(sql_statement, ("Book C", 8.5))
-    connection.commit()
-
-    # upload multiple at the same time
-    rows = [("Book D", 15.0), ("Book E", 10.0)]
-    connection.executemany(sql_statement, rows)
-    connection.commit()
+    # connection.execute(sql_statement)
+    # # clear books data when running the file again
+    # connection.execute("DELETE FROM books")
+    # connection.commit()
 
 
-    # Retrieve one book 
-    sql_statement = "SELECT id, title, price FROM books WHERE id = ?"
-    row = connection.execute(sql_statement, (book_id,)).fetchone()
-    print(dict(row))
+    # sql_statement = "INSERT INTO books (title, price) VALUES (?, ?)"
+    # cursor = connection.execute(sql_statement, ("Book A", 12.5))
+    # book_id = cursor.lastrowid
+    # connection.commit()
+
+    # # uplodaing a single book
+    # connection.execute(sql_statement, ("Book B", 1.5))
+    # connection.execute(sql_statement, ("Book C", 8.5))
+    # connection.commit()
+
+    # # upload multiple at the same time
+    # rows = [("Book D", 15.0), ("Book E", 10.0)]
+    # connection.executemany(sql_statement, rows)
+    # connection.commit()
 
 
-    # Preview the first n
-    # * means all cols are selected
-    sql_statement = "SELECT * FROM books ORDER BY id LIMIT ?"
-    rows = connection.execute(sql_statement, (5,)).fetchall()
-    print([dict(row) for row in rows])
+    # # Retrieve one book 
+    # sql_statement = "SELECT id, title, price FROM books WHERE id = ?"
+    # row = connection.execute(sql_statement, (book_id,)).fetchone()
+    # print(dict(row))
 
 
-    # Filter and Sort
-    sql_statement = """
-    SELECT title, price FROM books
-    WHERE price >= ? ORDER BY price DESC LIMIT ?
-    """
-    rows = connection.execute(sql_statement, (5, 2)).fetchall()
-    print([dict(row) for row in rows])
+    # # Preview the first n
+    # # * means all cols are selected
+    # sql_statement = "SELECT * FROM books ORDER BY id LIMIT ?"
+    # rows = connection.execute(sql_statement, (5,)).fetchall()
+    # print([dict(row) for row in rows])
 
 
-    #Total count
-    sql_statement = "SELECT COUNT(*) AS total FROM books"
-    row = connection.execute(sql_statement).fetchone()
-    print(row["total"])
+    # # Filter and Sort
+    # sql_statement = """
+    # SELECT title, price FROM books
+    # WHERE price >= ? ORDER BY price DESC LIMIT ?
+    # """
+    # rows = connection.execute(sql_statement, (5, 2)).fetchall()
+    # print([dict(row) for row in rows])
 
 
-    #Update
-    sql_statement = "UPDATE books SET price = ? WHERE id = ?"
-    connection.execute(sql_statement, (13.0, book_id))
-    connection.commit()
-
-    #Check
-    sql_statement = "SELECT price FROM books WHERE id = ?"
-    row = connection.execute(sql_statement, (book_id,)).fetchone()
-    print(row["price"])  # 13.0
-
-    #Delete
-    sql_statement = "DELETE FROM books WHERE id = ?"
-    connection.execute(sql_statement, (book_id,))
-    connection.commit()
-
-    #Check
-    sql_statement = "SELECT * FROM books WHERE id = ?"
-    row = connection.execute(sql_statement, (book_id,)).fetchone()
-    print(row)  # None
+    # #Total count
+    # sql_statement = "SELECT COUNT(*) AS total FROM books"
+    # row = connection.execute(sql_statement).fetchone()
+    # print(row["total"])
 
 
-    connection.close()
+    # #Update
+    # sql_statement = "UPDATE books SET price = ? WHERE id = ?"
+    # connection.execute(sql_statement, (13.0, book_id))
+    # connection.commit()
 
+    # #Check
+    # sql_statement = "SELECT price FROM books WHERE id = ?"
+    # row = connection.execute(sql_statement, (book_id,)).fetchone()
+    # print(row["price"])  # 13.0
+
+    # #Delete
+    # sql_statement = "DELETE FROM books WHERE id = ?"
+    # connection.execute(sql_statement, (book_id,))
+    # connection.commit()
+
+    # #Check
+    # sql_statement = "SELECT * FROM books WHERE id = ?"
+    # row = connection.execute(sql_statement, (book_id,)).fetchone()
+    # print(row)  # None
+
+    # connection.close()
 
     storage = BookStorage()
     book_id = storage.add_book("Book A", 12.5)
