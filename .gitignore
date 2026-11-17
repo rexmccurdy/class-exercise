@@ -7,7 +7,7 @@ Thumbs.db
 *.csv
 *.txt
 !requirements.txt
-data/
+*data/
 
 # Python caches & virtual envs
 __pycache__/
