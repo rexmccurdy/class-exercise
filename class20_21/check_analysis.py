@@ -45,6 +45,10 @@ def summarize_years(df, window=3):
     ].round(2)
     return summary
 
+def filter_movies(df, min_rating):
+    df = df[df["rating"] >= min_rating]
+    return df
+    
 
 
 if __name__ == "__main__":
